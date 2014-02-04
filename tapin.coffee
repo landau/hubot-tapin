@@ -8,6 +8,8 @@ responses = [
   'investors are smothering me.'
   'i was up looking at websites for 487 hours till 4 am last night!'
   'is a beast'
+  'that\'s not what I said, I said it should share to FB every time it\'s clicked'
+  'in the nicest way possible, do your job and I\'ll do mine'
 ]
 
 module.exports = (robot) ->
