@@ -1,8 +1,10 @@
 rand = (max) ->
   Math.floor Math.random() * max
+
 rand_zalgo = (array) ->
   ind = Math.floor(Math.random() * array.length)
   array[ind]
+
 is_zalgo_char = (c) ->
   i = undefined
   i = 0
@@ -14,6 +16,7 @@ is_zalgo_char = (c) ->
     return true  if c is zalgo_mid[i]
     i++
   false
+
 zalgo = (txt, level = 0) ->
   newtxt = ""
   i = 0
@@ -24,9 +27,7 @@ zalgo = (txt, level = 0) ->
     num_mid = undefined
     num_down = undefined
     
-    
     newtxt += txt.substr(i, 1)
-    
     
     if level is 0
       num_up = rand(8)
@@ -115,4 +116,9 @@ zalgo_mid = [
   "͡"
   "҉"
 ]
-module.exports = zalgo
+
+module.exports = (robot) ->
+  robot.respond /(zalgo )(.*)/i, (msg) ->
+    if msg.match[2]
+      respond = zalgo(msg.match[2])
+      msg.send "#{response}"
